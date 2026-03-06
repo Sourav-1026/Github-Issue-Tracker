@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github Issue Tracker</title>
+    <title>Github Issue Tracker | Sign In</title>
 
     <!-- DaisiUI and Tailwind Cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -14,8 +14,32 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./style/style.css" />
+
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon" />
   </head>
-  <body>
-    <h1>Hello World!</h1>
+
+  <body class="min-h-screen max-w-md mx-auto shadow-xl">
+    <div class="flex justify-center pt-[32px] mb-[24px]">
+      <img src="./assets/github-logo.png" alt="" />
+    </div>
+    <h2 class="text-[24px] font-semibold text-[#1F2937] text-center mb-1">GitHub Issues Tracker</h2>
+    <p class="text-[#64748B] text-center">Sign in to manage your issues</p>
+    <div class="form pt-[24px]">
+      <div class="card w-full max-w-sm shrink-0 mx-auto">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label font-bold text-[#1F2937]">Username</label>
+            <input type="text" class="input text-[#64748B]" id="username" placeholder="Enter Username" />
+            <br />
+            <label class="label text-[#1F2937] font-bold">Password</label>
+            <input type="password" class="input text-[#64748B]" id="password" placeholder="Enter Password" />
+            <button id="btn-signIN" class="btn btn-primary mt-4">Sign In</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script/login.js"></script>
   </body>
 </html>
