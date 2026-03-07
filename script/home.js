@@ -1,4 +1,6 @@
 let allIssues = [];
+let searchResults = [];
+let lastQuery = "";
 
 const cardInfo = document.getElementById("card-info");
 
@@ -76,8 +78,49 @@ function displayIssues(issues) {
 loadIssues();
 
 let currentStatus = "all-filter-btn";
+let currentSearchIndex = 0;
 
 const allCard = document.getElementById("all-card-container");
+const searchInput = document.getElementById("search-input");
+const nextIssueBtn = document.getElementById("next-issue-btn");
+
+const query = searchInput.value.trim().toLowerCase();
+
+async function searchIssues(query) {
+  const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`);
+  const data = await res.json();
+
+  searchResults = data.data;
+  currentSearchIndex = 0;
+}
+
+nextIssueBtn.addEventListener("click", async () => {
+  const query = searchInput.value.trim();
+
+  if (!query) {
+    alert("Type something first");
+    return;
+  }
+
+  if (query !== lastQuery) {
+    await searchIssues(query);
+    lastQuery = query;
+  }
+
+  if (searchResults.length === 0) {
+    await searchIssues(query);
+  }
+
+  const issue = searchResults[currentSearchIndex];
+
+  displayIssues([issue]);
+
+  currentSearchIndex++;
+
+  if (currentSearchIndex >= searchResults.length) {
+    currentSearchIndex = 0;
+  }
+});
 
 // let totalIssueCount = document.getElementById("total-issues");
 // totalIssueCount.innerText = allCard.length;
