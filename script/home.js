@@ -1,3 +1,13 @@
+const spinner = document.getElementById("loading-spinner");
+
+function showSpinner() {
+  spinner.classList.remove("hidden");
+}
+
+function hideSpinner() {
+  spinner.classList.add("hidden");
+}
+
 let allIssues = [];
 let searchResults = [];
 let lastQuery = "";
@@ -5,10 +15,14 @@ let lastQuery = "";
 const cardInfo = document.getElementById("card-info");
 
 async function loadIssues() {
+  showSpinner();
+
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   const data = await res.json();
 
   allIssues = data.data;
+
+  hideSpinner();
   displayIssues(allIssues);
 }
 
@@ -81,11 +95,8 @@ loadIssues();
 let currentStatus = "all-filter-btn";
 let currentSearchIndex = 0;
 
-// const allCard = document.getElementById("all-card-container");
 const searchInput = document.getElementById("search-input");
 const nextIssueBtn = document.getElementById("next-issue-btn");
-
-// const query = searchInput.value.trim().toLowerCase();
 
 async function searchIssues(query) {
   const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`);
@@ -97,6 +108,8 @@ async function searchIssues(query) {
 
 nextIssueBtn.addEventListener("click", async () => {
   const query = searchInput.value.trim();
+
+  showSpinner();
 
   if (!query) {
     alert("Type something first");
@@ -114,6 +127,7 @@ nextIssueBtn.addEventListener("click", async () => {
 
   const issue = searchResults[currentSearchIndex];
 
+  hideSpinner();
   displayIssues([issue]);
 
   currentSearchIndex++;
@@ -169,11 +183,7 @@ cardInfo.addEventListener("click", async (event) => {
   const data = await res.json();
   const issue = data.data;
 
-  // const priorityColor = issue.status === "open" ? "border-t-green-500" : "border-t-purple-500";
-
   const priorityBadge = issue.priority === "high" ? "bg-red-100 text-red-500" : issue.priority === "medium" ? "bg-yellow-100 text-yellow-600" : "bg-gray-200 text-gray-600";
-
-  // const statusIcon = issue.status === "open" ? `<i class="fa-regular fa-circle-check text-green-500"></i>` : `<i class="fa-solid fa-circle-check text-purple-500"></i>`;
 
   const labels = issue.labels
     .map((label) => {
