@@ -43,7 +43,7 @@ function displayIssues(issues) {
         <div class="flex justify-between items-start mb-3">
             ${statusIcon}
             <span class="text-xs px-3 py-1 rounded-full ${priorityBadge} font-semibold">
-                ${issue.priority}
+                ${issue.priority.toUpperCase()}
             </span>
         </div>
 
@@ -81,11 +81,11 @@ loadIssues();
 let currentStatus = "all-filter-btn";
 let currentSearchIndex = 0;
 
-const allCard = document.getElementById("all-card-container");
+// const allCard = document.getElementById("all-card-container");
 const searchInput = document.getElementById("search-input");
 const nextIssueBtn = document.getElementById("next-issue-btn");
 
-const query = searchInput.value.trim().toLowerCase();
+// const query = searchInput.value.trim().toLowerCase();
 
 async function searchIssues(query) {
   const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`);
@@ -122,9 +122,6 @@ nextIssueBtn.addEventListener("click", async () => {
     currentSearchIndex = 0;
   }
 });
-
-// let totalIssueCount = document.getElementById("total-issues");
-// totalIssueCount.innerText = allCard.length;
 
 const allBtn = document.getElementById("all-filter-btn");
 const openBtn = document.getElementById("open-filter-btn");
