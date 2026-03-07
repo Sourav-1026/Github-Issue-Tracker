@@ -1,4 +1,4 @@
-console.log("home js is working");
+let allIssues = [];
 
 const cardInfo = document.getElementById("card-info");
 
@@ -6,12 +6,15 @@ async function loadIssues() {
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   const data = await res.json();
 
-  const issues = data.data;
+  allIssues = data.data;
+  displayIssues(allIssues);
+}
 
+function displayIssues(issues) {
   cardInfo.innerHTML = "";
 
-  //   console.log(data);
-  //   console.log(cardInfo);
+  document.getElementById("total-issues").innerText = issues.length;
+
   issues.forEach((issue) => {
     const priorityColor = issue.status === "open" ? "border-t-green-500" : "border-t-purple-500";
 
@@ -57,18 +60,56 @@ async function loadIssues() {
 
         <div class="text-xs text-gray-400 border-t pt-3 flex justify-between">
             <div>
-            <p>#${issue.id} by ${issue.author}</p>
-            <p>Assignee: ${issue.assignee}</p>
+                <p>#${issue.id} by ${issue.author}</p>
+                <p>Assignee: ${issue.assignee}</p>
             </div>
             <div>
-            <p>Created: ${new Date(issue.createdAt).toLocaleDateString()}</p>
-            <p>Updated: ${new Date(issue.updatedAt).toLocaleDateString()}</p>
+                <p>Created: ${new Date(issue.createdAt).toLocaleDateString()}</p>
+                <p>Updated: ${new Date(issue.updatedAt).toLocaleDateString()}</p>
             </div>
         </div>
     `;
-
     cardInfo.appendChild(div);
   });
 }
 
 loadIssues();
+
+let currentStatus = "all-filter-btn";
+
+const allCard = document.getElementById("all-card-container");
+
+// let totalIssueCount = document.getElementById("total-issues");
+// totalIssueCount.innerText = allCard.length;
+
+const allBtn = document.getElementById("all-filter-btn");
+const openBtn = document.getElementById("open-filter-btn");
+const closeBtn = document.getElementById("close-filter-btn");
+
+function toggleStyle(id) {
+  allBtn.classList.remove("bg-[#4A00FF]", "text-white");
+  openBtn.classList.remove("bg-[#4A00FF]", "text-white");
+  closeBtn.classList.remove("bg-[#4A00FF]", "text-white");
+
+  allBtn.classList.add("text-[#64748B]");
+  openBtn.classList.add("text-[#64748B]");
+  closeBtn.classList.add("text-[#64748B]");
+
+  const selected = document.getElementById(id);
+  selected.classList.remove("text-[#64748B]");
+  selected.classList.add("bg-[#4A00FF]", "text-white");
+
+  currentStatus = id;
+
+  let filteredIssues = [];
+
+  if (id === "open-filter-btn") {
+    filteredIssues = allIssues.filter((issue) => issue.status === "open");
+  } else if (id === "close-filter-btn") {
+    filteredIssues = allIssues.filter((issue) => issue.status === "closed");
+  } else {
+    filteredIssues = allIssues;
+  }
+
+  displayIssues(filteredIssues);
+}
