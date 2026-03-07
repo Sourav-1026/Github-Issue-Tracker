@@ -9,6 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- Font Awesome Cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- Text font -->
     <link href="https://fonts.googleapis.com/css?family=Geist:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
 
@@ -20,6 +29,30 @@
   </head>
 
   <body class="">
-    <h1>Welcome To Home Page</h1>
+    <header>
+      <section class="navbar">
+        <div class="navbar bg-base-100 shadow-sm">
+          <div class="flex-1">
+            <div class="flex gap-1 items-center">
+              <div class="image-div w-[50px]">
+                <img src="./assets/github-logo.png" alt="" srcset="" />
+              </div>
+              <h3 class="text-[24px] font-bold text-[#1F2937]">GitHub Issues Tracker</h3>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 z-10 -translate-y-1/2 text-gray-400"></i>
+
+              <input type="text" placeholder="Search Issues..." class="input input-bordered w-24 md:w-auto pl-10 text-[#64748B] font-semibold" />
+            </div>
+            <button class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+              New Issue
+            </button>
+          </div>
+        </div>
+      </section>
+    </header>
   </body>
 </html>
