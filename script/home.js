@@ -207,7 +207,7 @@ cardInfo.addEventListener("click", async (event) => {
             ${issue.status === "open" ? "bg-green-500 text-white" : "bg-purple-500 text-white"}">
               ${issue.status === "open" ? "Opened" : "Closed"}
           </span>
-          <span>Opened by ${issue.author}</span>
+          <span>• Opened by ${issue.author}</span>
           <span>•</span>
           <span>${new Date(issue.createdAt).toLocaleDateString()}</span>
         </div>
