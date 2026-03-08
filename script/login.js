@@ -6,6 +6,7 @@ const signInBtn = document.getElementById("btn-signIN").addEventListener("click"
 
   if (username !== "admin") {
     alert("Invalid UserName");
+    return;
   }
 
   const passwordInput = document.getElementById("password");
