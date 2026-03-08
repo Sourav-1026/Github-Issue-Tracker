@@ -10,7 +10,7 @@
 
 ### 3. What is the difference between map(), filter(), and forEach()?
 
-    -map() iterates through element and return an array.
+    -map() transformed values of an array, without changing the original array and return an array.
     -filter() select elements based on a specific condition and return an array.
     -foreach() executes a funtion on every element and returns nothing.
 
