@@ -2,28 +2,26 @@
 
 ## 📄 Description
 
-- A simple and interactive digital tools marketplace. Users can browse tools, add them to their cart, manage items, and proceed to checkout smoothly. The goal of this project is to simulate a real-world e-commerce workflow with a clean UI and dynamic functionality.
+- A modern and interactive issue tracking system inspired by GitHub. Users can browse different issues, filter them by status (open/closed), search specific issues, and view detailed information through a modal. The project focuses on clean UI, smooth user experience, and efficient issue management.
 
 ---
 
 ## ⚙️ Technologies Used
 
-- React.js
+- Html
 - Tailwind CSS, DaisyUI
 - JavaScript (ES6+)
-- React-Toastify (NPM Package)
-- JSON (for product data)
 
 ---
 
 ## ✨ 3 Features About My Project
 
-- 🛍️ Add to Cart – Users can easily add digital products to their cart with a single click.
-- 🗑️ Remove Items – Items can be removed from the cart anytime for better control.
-- 💳 Checkout Flow – Smooth checkout process to simulate a real shopping experience.
+- 🔍 Smart Search – Quickly find issues using the search functionality.
+- 📂 Issue Filtering – Easily switch between Open and Closed issues using tabs.
+- 📝 Detailed Modal View – Click on any issue card to view full details in a popup modal.
 
 ---
 
 ## 🚀 Live Demo
 
-🔗 https://digital-tools-1026.netlify.app/
+🔗 https://sourav-1026.github.io/Github-Issue-Tracker/
