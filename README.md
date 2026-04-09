@@ -1,4 +1,4 @@
-# 🎯 Github Issue Tracker Website
+# 🐛 Github Issue Tracker Website
 
 ## 📄 Description
 
