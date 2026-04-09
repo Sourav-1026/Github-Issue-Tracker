@@ -1,23 +1,29 @@
-### 1. What is the difference between var, let, and const?
+# 🎯 Digital Tools Buying Website
 
-    -var is Function scoped,it allows reassignment and redeclaration, it is hoisted and initialized with undefined.
-    -let is Block scoped, it allows only reassignment, it is hoisted but not initialized.
-    -const is also Block scoped, it doesn't allow reassignment or redeclaration, it is also hoisted but not initialized
+## 📄 Description
 
-### 2. What is the spread operator (...)?
+- A simple and interactive digital tools marketplace. Users can browse tools, add them to their cart, manage items, and proceed to checkout smoothly. The goal of this project is to simulate a real-world e-commerce workflow with a clean UI and dynamic functionality.
 
-    The spread operator is a operator, which expands elements of an array or object.
+---
 
-### 3. What is the difference between map(), filter(), and forEach()?
+## ⚙️ Technologies Used
 
-    -map() transformed values of an array, without changing the original array and return an array.
-    -filter() select elements based on a specific condition and return an array.
-    -foreach() executes a funtion on every element and returns nothing.
+- React.js
+- Tailwind CSS, DaisyUI
+- JavaScript (ES6+)
+- React-Toastify (NPM Package)
+- JSON (for product data)
 
-### 4. What is an arrow function?
+---
 
-    An arrow function is a feature of ES6, which basically is a shorter syntex of a normal function.
+## ✨ 3 Features About My Project
 
-### 5. What are template literals?
+- 🛍️ Add to Cart – Users can easily add digital products to their cart with a single click.
+- 🗑️ Remove Items – Items can be removed from the cart anytime for better control.
+- 💳 Checkout Flow – Smooth checkout process to simulate a real shopping experience.
 
-    Template Literals allow string interpolation and multi-line strings by using backticks (``).
+---
+
+## 🚀 Live Demo
+
+🔗 https://digital-tools-1026.netlify.app/
