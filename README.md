@@ -1,4 +1,4 @@
-# 🎯 Digital Tools Buying Website
+# 🎯 Github Issue Tracker Website
 
 ## 📄 Description
 
